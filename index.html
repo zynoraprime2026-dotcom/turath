@@ -164,10 +164,10 @@
       <h3>Endpoints</h3>
       <table class="epTable">
         <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
-        <tr><td>GET</td><td><code>/api/manuscripts</code></td><td>List manuscripts. Query: <code>q</code>, <code>language</code>, <code>subject</code>, <code>region</code>, <code>page</code>. Returns <code>{ total, page, per, manuscripts[] }</code></td></tr>
+        <tr><td>GET</td><td><code>/api/manuscripts</code></td><td>List manuscripts. Query: <code>q</code> (full-text, English &amp; Arabic), <code>language</code>, <code>subject</code>, <code>region</code>, <code>script</code>, <code>century</code>, <code>centuryMin</code>, <code>centuryMax</code>, <code>readable=true</code> (free full-text editions), <code>hasImage=true</code>, <code>page</code>. Returns <code>{ total, page, per, manuscripts[] }</code></td></tr>
         <tr><td>GET</td><td><code>/api/manuscripts/random</code></td><td>One random manuscript</td></tr>
         <tr><td>GET</td><td><code>/api/manuscripts/daily</code></td><td>Manuscript of the Day (same one all day)</td></tr>
-        <tr><td>GET</td><td><code>/api/manuscripts/:id</code></td><td>Single manuscript by id</td></tr>
+        <tr><td>GET</td><td><code>/api/manuscripts/:id</code></td><td>Single manuscript by id, with <code>related[]</code> recommendations</td></tr>
         <tr><td>GET</td><td><code>/api/events</code></td><td>List historical events. Query: <code>q</code>, <code>category</code>, <code>region</code>, <code>page</code></td></tr>
         <tr><td>GET</td><td><code>/api/events/:id</code></td><td>Single event by id</td></tr>
         <tr><td>GET</td><td><code>/api/stats</code></td><td>Archive counts (manuscripts, events, subjects…)</td></tr>
