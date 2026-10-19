@@ -65,3 +65,17 @@ button.primary:hover{background:#37a583}
 .srcLine{margin-top:6px;font-size:.8rem;color:var(--mut)}
 
 .modal[hidden]{display:none!important}
+
+/* ---- v2 additions ---- */
+.ghost{background:transparent;border:1px solid #b8860b;color:#d9c58a;border-radius:8px;padding:8px 14px;cursor:pointer}
+.ghost:hover{background:#1a241a}
+.suggestRow{text-align:center;margin:14px 0}
+#suggestBtn{font-size:15px}
+.modalActions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+
+/* visual timeline */
+.timeline{position:relative;padding-inline-start:22px;border-inline-start:2px solid #3a4a3a;margin:14px 0}
+.tevent{position:relative;margin:14px 0;padding:12px;border:1px solid #2a362a;border-radius:10px;background:#0e140e}
+.tevent::before{content:'';position:absolute;inset-inline-start:-29px;top:20px;width:10px;height:10px;border-radius:50%;background:#b8860b;box-shadow:0 0 0 3px #0a0d0a}
+.cdiv{margin:22px 0 8px;color:#b8860b;font-weight:700;letter-spacing:1px;text-align:center}
+.cdiv:first-child{margin-top:4px}

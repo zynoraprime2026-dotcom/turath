@@ -6,8 +6,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 const I18N = {
-  en: { manuscripts: 'Manuscripts', history: 'History', about: 'About', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Database', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View digitized copy / catalog entry', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.' },
-  ar: { manuscripts: 'المخطوطات', history: 'التاريخ', about: 'عن المشروع', search: 'بحث', lang: 'English', heroM: 'قاعدة بيانات المخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض النسخة الرقمية', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.' }
+  en: { manuscripts: 'Manuscripts', history: 'History', about: 'About', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Database', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View digitized copy / catalog entry', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending' },
+  ar: { manuscripts: 'المخطوطات', history: 'التاريخ', about: 'عن المشروع', search: 'بحث', lang: 'English', heroM: 'قاعدة بيانات المخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض النسخة الرقمية', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة' }
 };
 let LANG = localStorage.getItem('turathLang') || 'en';
 const T = k => I18N[LANG][k];
@@ -24,6 +24,8 @@ function applyLang() {
   $('#tab-events .hero p').textContent = T('heroEP');
   $('#mSearchBtn').textContent = T('search');
   $('#eSearchBtn').textContent = T('search');
+  $('#suggestBtn').textContent = T('suggest');
+  $('#suggBox summary').textContent = T('suggAdmin');
   $('#mSearch').placeholder = LANG === 'ar' ? 'ابحث في العنوان أو المؤلف أو الوصف…' : 'Search title, author, description…';
   $('#eSearch').placeholder = LANG === 'ar' ? 'ابحث في الأحداث…' : 'Search events…';
   if (mState.data) renderM(mState.data);
@@ -55,8 +57,67 @@ function applyAdmin() {
   const on = !!sessionStorage.getItem('turathAdmin');
   $('#mForm').style.display = on ? 'block' : 'none';
   $('#eForm').style.display = on ? 'block' : 'none';
+  $('#suggBox').style.display = on ? 'block' : 'none';
   document.querySelectorAll('.delBtn').forEach(b => b.style.display = on ? 'inline-block' : 'none');
+  if (on) loadSugg();
 }
+
+// ---------- visitor suggestions ----------
+async function loadSugg() {
+  if (!sessionStorage.getItem('turathAdmin')) return;
+  const r = await fetch(`${CFG.API_BASE}/api/suggestions`, { headers: H_ADMIN() });
+  const d = await r.json();
+  if (!r.ok) return;
+  const list = (d.suggestions || []);
+  $('#suggBox summary').textContent = `${T('suggAdmin').replace('+ ','+ ')} (${list.filter(x => x.status === 'pending').length} ${T('pending')})`;
+  $('#suggList').innerHTML = list.length ? list.map(x => `
+    <div class="sugg ${x.status}" style="margin:12px 0;padding:12px;border:1px solid #3a4a3a;border-radius:10px">
+      <b>${esc(x.title)}</b> ${x.author ? '· ' + esc(x.author) : ''} <span class="chip">${x.status}</span>
+      ${x.submitter ? `<div class="small">${T('suggBy')}: ${esc(x.submitter)}</div>` : ''}
+      ${[x.language, x.subject, x.region].filter(Boolean).map(v => `<span class="chip">${esc(v)}</span>`).join('')}
+      ${x.description ? `<p class="small">${esc(x.description)}</p>` : ''}
+      ${x.status === 'pending' ? `<button class="primary" onclick="suggAct(${x.id},'approved')">${T('approve')}</button>
+      <button class="ghost" onclick="suggAct(${x.id},'rejected')">${T('reject')}</button>` : ''}
+      <button class="ghost" onclick="suggAct(${x.id},'delete')">${T('del')}</button>
+    </div>`).join('') : `<p class="small">${T('none')}</p>`;
+}
+window.suggAct = async (id, action) => {
+  const opts = action === 'delete'
+    ? { method: 'DELETE', headers: H_ADMIN() }
+    : { method: 'PUT', headers: H_ADMIN(), body: JSON.stringify({ status: action }) };
+  const r = await fetch(`${CFG.API_BASE}/api/suggestions/${id}`, opts);
+  if (r.ok) { loadSugg(); loadM(); }
+};
+window.openSuggest = () => {
+  $('#modalContent').innerHTML = `
+    <div class="detail">
+      <h2>${T('suggHead')}</h2>
+      <p class="small">${T('suggP')}</p>
+      <form id="suggForm" onsubmit="return submitSugg(event)">
+        <input name="title" placeholder="${T('suggTitle')}" required maxlength="200">
+        <input name="author" placeholder="${T('suggAuthor')}" maxlength="200">
+        <input name="language" placeholder="${T('suggLang')}">
+        <input name="subject" placeholder="${T('suggSubj')}">
+        <input name="region" placeholder="${T('suggRegion')}">
+        <input name="submitter" placeholder="${T('suggName')}" maxlength="100">
+        <textarea name="description" rows="3" placeholder="${T('suggDesc')}"></textarea>
+        <button class="primary" type="submit">${T('suggSend')}</button>
+        <span class="formMsg"></span>
+      </form>
+    </div>`;
+  $('#modal').hidden = false;
+};
+window.submitSugg = async e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const body = {}; f.forEach((v, k) => body[k] = v);
+  const r = await fetch(`${CFG.API_BASE}/api/suggestions`, { method: 'POST', headers: H(), body: JSON.stringify(body) });
+  const d = await r.json();
+  e.target.querySelector('.formMsg').textContent = r.ok ? T('suggThx') : (d.error || 'Error');
+  if (r.ok) e.target.reset();
+  return false;
+};
+$('#suggestBtn').addEventListener('click', openSugg);
 
 // ---------- manuscripts ----------
 async function loadM() {
@@ -92,10 +153,47 @@ function renderM(d) {
   }
   applyAdmin();
 }
+let curM = null;
 async function showM(id) {
   const r = await fetch(`${CFG.API_BASE}/api/manuscripts/${id}`, { headers: H() });
   const d = await r.json();
-  const m = d.manuscript;
+  renderDetail(d.manuscript);
+}
+async function randomM() {
+  const r = await fetch(`${CFG.API_BASE}/api/manuscripts/random`, { headers: H() });
+  if (!r.ok) { alert('No manuscripts available'); return; }
+  const d = await r.json();
+  renderDetail(d.manuscript);
+}
+$('#randomBtn').addEventListener('click', randomM);
+window.copyCitation = () => {
+  const m = curM; if (!m) return;
+  const bits = [m.author || 'Unknown author', `${m.title}${m.titleAr ? ' [' + m.titleAr + ']' : ''}.`];
+  if (m.date_written) bits.push(m.date_written + '.');
+  if (m.language) bits.push(`${m.language}${m.script ? ', written in ' + m.script : ''}.`);
+  if (m.holding) bits.push(`Held at: ${m.holding}.`);
+  bits.push(`Turath — Islamic Manuscripts Database, https://turath-green.vercel.app (accessed ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}).`);
+  const cite = bits.join(' ');
+  const done = ok => { const b = $('#citeBtn'); if (b) { b.textContent = ok ? T('copied') : T('cite'); setTimeout(() => { if ($('#citeBtn')) $('#citeBtn').textContent = T('cite'); }, 2000); } };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(cite).then(() => done(true)).catch(() => fallbackCopy(cite, done));
+  else fallbackCopy(cite, done);
+};
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea');
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(true); } catch (e) { done(false); }
+  document.body.removeChild(ta);
+}
+window.uploadImg = async input => {
+  const file = input.files && input.files[0]; if (!file) return;
+  const m = curM; if (!m) return;
+  const btn = $('#mImgUploadBtn'); if (btn) btn.textContent = T('uploading');
+  const fd = new FormData(); fd.append('image', file);
+  const r = await fetch(`${CFG.API_BASE}/api/manuscripts/${m.id}/image`, { method: 'POST', headers: { 'x-api-key': CFG.API_KEY, 'x-admin-pass': sessionStorage.getItem('turathAdmin') || '' }, body: fd });
+  const d = await r.json();
+  if (r.ok) { showM(m.id); loadM(); } else { if (btn) btn.textContent = d.error || 'Error'; }
+};
+function renderDetail(m) {
   const chain = Array.isArray(m.chain) ? m.chain : [];
   $('#modalContent').innerHTML = `
     <div class="detail">
@@ -108,7 +206,12 @@ async function showM(id) {
       ${chain.length ? `<h3>${T('chain')}</h3><ol class="chain">${chain.map(c => `<li>${esc(c)}</li>`).join('')}</ol>` : ''}
       <p>${[['Language', m.language], ['Script', m.script], ['Subject', m.subject], ['Region', m.region], ['Century (AH)', m.century], [T('held'), m.holding]].filter(([,v]) => v).map(([k,v]) => `<span class="chip"><b>${k}:</b> ${esc(v)}</span>`).join('')}</p>
       ${m.sources ? `<h3>${T('sources')}</h3><p class="sources">${esc(m.sources)}</p>` : ''}
-      ${m.digital_url ? `<p><a href="${esc(m.digital_url)}" target="_blank" rel="noopener">${T('viewCopy')} →</a></p>` : ''}
+      ${(m.digitalUrl || m.digital_url) ? `<p><a href="${esc(m.digitalUrl || m.digital_url)}" target="_blank" rel="noopener">${T('viewCopy')} →</a></p>` : ''}
+      <div class="modalActions">
+        <button id="citeBtn" class="ghost" onclick="copyCitation()">${T('cite')}</button>
+        ${sessionStorage.getItem('turathAdmin') ? `<span><input type="file" id="mImgInput" accept="image/jpeg,image/png,image/webp" onchange="uploadImg(this)" style="display:none">
+        <button id="mImgUploadBtn" class="ghost" onclick="document.getElementById('mImgInput').click()">⬆ ${T('upload')}</button></span>` : ''}
+      </div>
     </div>`;
   $('#modal').hidden = false;
 }
@@ -141,7 +244,16 @@ async function loadE() {
 }
 function renderE(d) {
   $('#eStats').textContent = `${d.total} event${d.total === 1 ? '' : 's'} — page ${d.page}`;
-  $('#eList').innerHTML = d.events.map(ev => `
+  let lastC = null;
+  $('#eList').innerHTML = d.events.map(ev => {
+    const c = ev.year_hijri ? Math.floor((ev.year_hijri - 1) / 100) + 1 : null;
+    let divider = '';
+    if (c && c !== lastC && d.page === 1) {
+      lastC = c;
+      const suf = (c % 100 % 10 === 1 && c % 100 !== 11) ? 'st' : (c % 100 % 10 === 2 && c % 100 !== 12) ? 'nd' : (c % 100 % 10 === 3 && c % 100 !== 13) ? 'rd' : 'th';
+      divider = `<div class="cdiv">— ${c}${suf} century AH —</div>`;
+    }
+    return divider + `
     <div class="tevent">
       <span class="year">${ev.year_gregorian ? ev.year_gregorian + ' CE' : ''}${ev.year_hijri ? ' / ' + ev.year_hijri + ' AH' : ''}</span>
       <h3>${esc(LANG === 'ar' && ev.titleAr ? ev.titleAr : ev.title)}</h3>
@@ -150,7 +262,7 @@ function renderE(d) {
       ${ev.sources ? `<div class="srcLine">📚 ${esc(ev.sources)}</div>` : ''}
       <div>${[ev.category, ev.region].filter(Boolean).map(v => `<span class="chip">${esc(v)}</span>`).join('')}</div>
       ${ev.source_url ? `<a href="${esc(ev.source_url)}" target="_blank" rel="noopener">Source →</a>` : ''}
-    </div>`).join('') || T('noMatchE');
+    </div>`;}).join('') || T('noMatchE');
   $('#ePage').textContent = `Page ${d.page} of ${Math.max(1, Math.ceil(d.total / d.per))}`;
   $('#ePrev').disabled = d.page <= 1;
   $('#eNext').disabled = d.page * d.per >= d.total;

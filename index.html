@@ -13,6 +13,7 @@
     <button data-tab="manuscripts" class="active">Manuscripts</button>
     <button data-tab="events">History</button>
     <button data-tab="about">About</button>
+    <button id="randomBtn" title="Random manuscript">🎲</button>
     <button id="langBtn" title="Language">عربي</button>
     <button id="adminBtn" title="Admin mode">⚙</button>
   </nav>
@@ -35,6 +36,13 @@
     <div id="mStats" class="statline"></div>
     <div id="mGrid" class="grid"></div>
     <div class="pager"><button id="mPrev">← Prev</button><span id="mPage"></span><button id="mNext">Next →</button></div>
+
+    <div class="suggestRow"><button id="suggestBtn" class="ghost">✉ Suggest a manuscript</button></div>
+
+    <details id="suggBox" class="adminBox" style="display:none">
+      <summary>+ Visitor suggestions (admin)</summary>
+      <div id="suggList"></div>
+    </details>
 
     <details id="mForm" class="adminBox" style="display:none">
       <summary>+ Add manuscript (admin)</summary>
@@ -100,7 +108,7 @@
   <section id="tab-about" class="tab">
     <div class="hero">
       <h1>About Turath</h1>
-      <p>Turath (تراث, "heritage") is a database of Islamic manuscripts and historical events. It exists to preserve and share the intellectual heritage of the Ummah — the sciences, arts, history and scriptures that shaped civilisation for over fourteen centuries.</p>
+      <p>Turath (تراث, "heritage") is a database of Islamic manuscripts and historical events. It exists to preserve and share the intellectual heritage of the Ummah — the sciences, arts, history and scriptures that shaped civilisation for over fourteen centuries. Coverage is global, as Islam itself is global: from Andalus to Nusantara, Timbuktu to Samarkand, Istanbul to Delhi.</p>
       <p class="small">Built with a Vercel API and Postgres. Content is curated with respect; corrections are welcome via the admin panel.</p>
     </div>
   </section>
