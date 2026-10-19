@@ -26,6 +26,7 @@
     <button data-tab="manuscripts" class="active">Manuscripts</button>
     <button data-tab="events">History</button>
     <button data-tab="stories">Stories</button>
+    <button data-tab="assistant">Assistant</button>
     <button data-tab="about">About</button>
     <button data-tab="devs">Developers</button>
     <button id="randomBtn" title="Random manuscript">🎲</button>
@@ -86,6 +87,23 @@
   </section>
 
   <!-- EVENTS -->
+  <section id="tab-assistant" class="tab">
+    <div class="hero">
+      <h1>Turath Assistant</h1>
+      <p>Ask anything about Islamic manuscripts, their authors, scripts and history — grounded in this collection.</p>
+    </div>
+    <div id="chatLog" class="chatlog"></div>
+    <div class="chatchips" id="chatChips">
+      <button class="chip">What is the oldest manuscript here?</button>
+      <button class="chip">Tell me about al-Khwarizmi</button>
+      <button class="chip">What scripts were used in Islamic manuscripts?</button>
+      <button class="chip">Which works traveled from Baghdad to Europe?</button>
+    </div>
+    <div class="chatbar">
+      <input id="chatInput" type="text" placeholder="Ask the assistant…" autocomplete="off">
+      <button id="chatSend" class="primary">Send</button>
+    </div>
+  </section>
   <section id="tab-events" class="tab">
     <div class="hero">
       <h1>Islamic History Timeline</h1>

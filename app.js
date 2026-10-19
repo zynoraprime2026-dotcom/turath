@@ -481,3 +481,90 @@ async function showStory(id) {
 
 // lazy-load the first time the Stories tab is opened
 document.querySelector('[data-tab="stories"]').addEventListener('click', loadQasas);
+
+// ---------- Turath Assistant ----------
+let chatHistory = [];
+let assistantCatalog = null;
+async function ensureCatalog() {
+  if (assistantCatalog) return assistantCatalog;
+  const lines = [];
+  const fetchAll = async (path, listKey, mapFn) => {
+    let page = 1;
+    while (page < 5) {
+      const r = await fetch(`${CFG.API_BASE}/api/${path}?page=${page}&per=50`, { headers: H() });
+      if (!r.ok) break;
+      const d = await r.json();
+      (d[listKey] || []).forEach(mapFn);
+      if ((d[listKey] || []).length < 50) break;
+      page++;
+    }
+  };
+  try {
+    await fetchAll('manuscripts', 'manuscripts', m => lines.push(
+      `MS#${m.id} "${m.title}"${m.titleAr ? " / " + m.titleAr : ""} by ${m.author || "unknown"} — ${m.subject || ""}, ${m.century || ""} c., ${m.script || ""} script, held at ${m.institution || "unknown"}. ${m.description || ""}`));
+  } catch (e) { /* assistant works without catalog */ }
+  try {
+    await fetchAll('events', 'events', ev => lines.push(
+      `EV: ${ev.title} (${ev.year || ""}, ${ev.region || ""}) — ${ev.description || ""}`));
+  } catch (e) { /* ok */ }
+  assistantCatalog = lines.join("\n");
+  return assistantCatalog;
+}
+async function askAssistant(q) {
+  q = (q || '').trim();
+  if (!q) return;
+  const log = $('#chatLog');
+  log.insertAdjacentHTML('beforeend', `<div class="msg user">${esc(q)}</div>`);
+  log.insertAdjacentHTML('beforeend', `<div class="msg bot loading">…</div>`);
+  log.scrollTop = log.scrollHeight;
+  $('#chatInput').value = '';
+  try {
+    const catalog = await ensureCatalog();
+    chatHistory.push({ role: 'user', content: q });
+    const sys = `You are the Turath Assistant for a digital library of Islamic manuscripts and Islamic history. Answer helpfully and accurately in the user's language (currently ${LANG === 'ar' ? 'Arabic' : 'English'}). Ground answers in the collection catalog below when relevant, citing manuscript titles; otherwise answer from your knowledge of Islamic manuscripts, palaeography and history. Be concise but substantive (2-6 short paragraphs). Never fabricate manuscript attributions.
+
+CATALOG:
+${catalog}`;
+    const r = await fetch(CFG.AI_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-api-key': CFG.AI_KEY },
+      body: JSON.stringify({ messages: chatHistory.slice(-8), system: sys, maxTokens: 2500 })
+    });
+    const d = await r.json();
+    const text = (d.text || d.error || 'No answer').trim();
+    chatHistory.push({ role: 'assistant', content: text });
+    log.querySelector('.msg.bot.loading').remove();
+    log.insertAdjacentHTML('beforeend', `<div class="msg bot">${mdLite(text)}</div>`);
+  } catch (e) {
+    const el = log.querySelector('.msg.bot.loading');
+    if (el) el.innerHTML = esc(LANG === 'ar' ? 'تعذر الاتصال بالمساعد، حاول مجددا.' : 'Could not reach the assistant. Please try again.');
+  }
+  log.scrollTop = log.scrollHeight;
+}
+// minimal markdown: **bold**, headings, line breaks
+function mdLite(t) {
+  const blocks = esc(t).split(/\n\n+/).map(b => {
+    b = b.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+         .replace(/^###\s*(.+)$/gm, '<strong>$1</strong>')
+         .replace(/^##\s*(.+)$/gm, '<strong>$1</strong>')
+         .replace(/\n/g, '<br>');
+    return `<p>${b}</p>`;
+  }).join('');
+  return blocks;
+}
+document.addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (chip) { askAssistant(chip.textContent); return; }
+  if (e.target.id === 'chatSend') { askAssistant($('#chatInput').value); return; }
+  if (e.target.id === 'chatInput' && e.key === undefined) return;
+});
+$('#chatInput').addEventListener('keydown', e => { if (e.key === 'Enter') askAssistant(e.target.value); });
+document.querySelector('[data-tab="assistant"]').addEventListener('click', () => {
+  const log = $('#chatLog');
+  if (!log.dataset.hi) {
+    log.dataset.hi = '1';
+    log.insertAdjacentHTML('beforeend',
+      `<div class="msg bot">${LANG === 'ar' ? 'وعليكم السلام! أنا مساعد الطراث. اسألني عن المخطوطات ومؤلفيها وتاريخها.' : 'Salam! I am the Turath Assistant. Ask me about the manuscripts, their authors, scripts and history.'}</div>`);
+    $('#chatInput').focus();
+  }
+});
