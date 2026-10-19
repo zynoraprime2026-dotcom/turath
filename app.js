@@ -1,4 +1,8 @@
 const CFG = window.TURATH_CONFIG;
+function bootErr(msg) {
+  const el = document.getElementById('mStats');
+  if (el) el.innerHTML = '<span style="color:#e08080">⚠ ' + msg + '</span>';
+}
 const H = k => ({ 'Content-Type': 'application/json', 'x-api-key': CFG.API_KEY });
 const H_ADMIN = () => ({ ...H(), 'x-admin-pass': sessionStorage.getItem('turathAdmin') || '' });
 
@@ -125,8 +129,15 @@ $('#suggestBtn').addEventListener('click', openSuggest);
 async function loadM() {
   const q = $('#mSearch').value.trim();
   const url = `${CFG.API_BASE}/api/manuscripts?q=${encodeURIComponent(q)}&language=${encodeURIComponent($('#mLanguage').value)}&subject=${encodeURIComponent($('#mSubject').value)}&region=${encodeURIComponent($('#mRegion').value)}&page=${mState.page}`;
-  const r = await fetch(url, { headers: H() });
-  const d = await r.json();
+  let d;
+  try {
+    const r = await fetch(url, { headers: H() });
+    d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+  } catch (e) {
+    $('#mStats').innerHTML = `<span style="color:#e08080">⚠ ${esc(e.message || 'API unreachable')} — ${LANG === 'ar' ? 'اضغط بحث للمحاولة مجددا' : 'tap Search to retry'}</span>`;
+    return;
+  }
   mState.data = d;
   renderM(d);
 }
@@ -156,10 +167,21 @@ function renderM(d) {
   applyAdmin();
 }
 let curM = null;
+function toast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#5a1f1f;color:#f3d9d9;padding:10px 18px;border-radius:10px;z-index:99;font-size:.9rem;max-width:85vw;text-align:center';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
 async function showM(id) {
-  const r = await fetch(`${CFG.API_BASE}/api/manuscripts/${id}`, { headers: H() });
-  const d = await r.json();
-  renderDetail(d.manuscript);
+  let d;
+  try {
+    const r = await fetch(`${CFG.API_BASE}/api/manuscripts/${id}`, { headers: H() });
+    d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+    renderDetail(d.manuscript);
+  } catch (e) { toast('⚠ ' + (e.message || 'API unreachable')); console.error('showM failed:', e); }
 }
 async function randomM() {
   const r = await fetch(`${CFG.API_BASE}/api/manuscripts/random`, { headers: H() });
@@ -241,8 +263,12 @@ $('#mAdd').addEventListener('submit', async e => {
 async function loadE() {
   const q = $('#eSearch').value.trim();
   const url = `${CFG.API_BASE}/api/events?q=${encodeURIComponent(q)}&category=${encodeURIComponent($('#eCategory').value)}&region=${encodeURIComponent($('#eRegion').value)}&page=${eState.page}`;
-  const r = await fetch(url, { headers: H() });
-  const d = await r.json();
+  let d;
+  try {
+    const r = await fetch(url, { headers: H() });
+    d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+  } catch (e) { $('#eStats').innerHTML = `<span style="color:#e08080">⚠ ${esc(e.message || 'API unreachable')}</span>`; return; }
   eState.data = d;
   renderE(d);
 }
@@ -333,6 +359,7 @@ async function loadDaily() {
 }
 
 // ---------- init ----------
+if (!CFG || !CFG.API_BASE || !CFG.API_KEY) { bootErr('Config missing — API not reachable. Reload the page.'); }
 applyAdmin();
 applyLang();
 loadM();
