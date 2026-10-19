@@ -337,9 +337,13 @@ $('#modal').addEventListener('click', e => { if (e.target === $('#modal')) $('#m
 window.shareM = () => {
   const m = curM; if (!m) return;
   const url = `https://turath-green.vercel.app/#m/${m.id}`;
+  const t = LANG === 'ar' && m.titleAr ? m.titleAr : m.title;
+  const d = LANG === 'ar' && m.descriptionAr ? m.descriptionAr : (m.description || '');
+  const who = [m.author || '', m.date_written || ''].filter(Boolean).join(' · ');
+  const text = `${t}\n${m.titleAr && t !== m.titleAr ? m.titleAr + '\n' : ''}${who}\n${d.slice(0, 400)}${d.length > 400 ? '…' : ''}\n\nRead it in Turath → ${url}`;
   const done = ok => { const b = $('#shareBtn'); if (b) { b.textContent = ok ? T('shareCopied') : T('share'); setTimeout(() => { if ($('#shareBtn')) $('#shareBtn').textContent = T('share'); }, 2000); } };
-  const viaHash = () => { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(() => done(true)).catch(() => fallbackCopy(url, done)); else fallbackCopy(url, done); };
-  if (navigator.share) navigator.share({ title: m.title, text: (m.description || '').slice(0, 120), url }).then(() => done(true)).catch(() => viaHash());
+  const viaHash = () => { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => done(true)).catch(() => fallbackCopy(text, done)); else fallbackCopy(text, done); };
+  if (navigator.share) navigator.share({ title: m.title, text, url }).then(() => done(true)).catch(() => viaHash());
   else viaHash();
 };
 const clearHash = () => { if (location.hash.startsWith('#m/')) history.replaceState(null, '', location.pathname); };
@@ -368,11 +372,22 @@ async function loadDaily() {
 }
 
 // ---------- event share ----------
-window.shareEvent = id => {
+window.shareEvent = async id => {
   const url = `https://turath-green.vercel.app/e/${id}`;
   const done = ok => { toast(ok ? T('shareCopied') : (T('share') + '?')); };
-  const viaHash = () => { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(() => done(true)).catch(() => fallbackCopy(url, done)); else fallbackCopy(url, done); };
-  if (navigator.share) navigator.share({ title: 'Turath — Islamic history', url }).then(() => done(true)).catch(() => viaHash());
+  let text = `Turath — Islamic history\n${url}`;
+  try {
+    const r = await fetch(`${CFG.API_BASE}/api/events/${id}`, { headers: H() });
+    if (r.ok) {
+      const e = (await r.json()).event;
+      const t = LANG === 'ar' && e.titleAr ? e.titleAr : e.title;
+      const d = LANG === 'ar' && e.descriptionAr ? e.descriptionAr : (e.description || '');
+      const when = [e.yearGregorian ? e.yearGregorian + ' CE' : '', e.yearHijri ? e.yearHijri + ' AH' : ''].filter(Boolean).join(' / ');
+      text = `${t}\n${when}\n${d.slice(0, 400)}${d.length > 400 ? '…' : ''}\n\n${url}`;
+    }
+  } catch (err) { /* fall back to plain link text */ }
+  const viaHash = () => { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => done(true)).catch(() => fallbackCopy(text, done)); else fallbackCopy(text, done); };
+  if (navigator.share) navigator.share({ title: 'Turath — Islamic history', text, url }).then(() => done(true)).catch(() => viaHash());
   else viaHash();
 };
 

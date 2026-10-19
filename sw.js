@@ -1,5 +1,5 @@
 // Turath service worker: app-shell cache for offline use.
-const CACHE = 'turath-v3';
+const CACHE = 'turath-v4';
 const SHELL = ['/', '/app.js', '/style.css', '/config.js', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png'];
 
 self.addEventListener('install', e => {
