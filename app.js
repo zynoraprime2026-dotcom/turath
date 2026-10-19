@@ -118,7 +118,7 @@ window.submitSugg = async e => {
   if (r.ok) e.target.reset();
   return false;
 };
-$('#suggestBtn').addEventListener('click', openSugg);
+$('#suggestBtn').addEventListener('click', openSuggest);
 
 // ---------- manuscripts ----------
 async function loadM() {
