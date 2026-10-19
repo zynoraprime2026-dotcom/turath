@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/m/:id", "destination": "https://turath-api.vercel.app/api/m/:id" }
+    {
+      "source": "/m/:id",
+      "destination": "https://turath-api.vercel.app/api/m/:id"
+    },
+    {
+      "source": "/e/:id",
+      "destination": "https://turath-api.vercel.app/api/e/:id"
+    }
   ]
 }

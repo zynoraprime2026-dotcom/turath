@@ -109,3 +109,10 @@ button.primary:hover{background:#37a583}
 [dir="rtl"] .epTable th, [dir="rtl"] .epTable td { text-align: right; }
 .epTable th { color: var(--gold, #f9cb65); background: rgba(255,255,255,.05); }
 .epTable code { border: none; background: rgba(255,255,255,.08); }
+
+/* ---------- events: share links ---------- */
+.evTitle { color: inherit; text-decoration: none; }
+a.evTitle:hover { color: var(--gold, #f9cb65); }
+.evPageLink { color: var(--gold, #f9cb65); font-size: .85rem; text-decoration: none; }
+.shareChip { cursor: pointer; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); color: var(--gold, #f9cb65); }
+.shareChip:hover { background: rgba(255,255,255,.12); }

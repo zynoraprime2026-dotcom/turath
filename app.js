@@ -286,12 +286,12 @@ function renderE(d) {
     return divider + `
     <div class="tevent">
       <span class="year">${ev.year_gregorian ? ev.year_gregorian + ' CE' : ''}${ev.year_hijri ? ' / ' + ev.year_hijri + ' AH' : ''}</span>
-      <h3>${esc(LANG === 'ar' && ev.titleAr ? ev.titleAr : ev.title)}</h3>
+      <h3><a class="evTitle" href="/e/${ev.id}" target="_blank" rel="noopener">${esc(LANG === 'ar' && ev.titleAr ? ev.titleAr : ev.title)}</a></h3>
       <p>${esc(LANG === 'en' || !ev.descriptionAr ? ev.description : ev.descriptionAr)}</p>
       ${ev.titleAr && LANG !== 'ar' ? `<div class="arTitle">${esc(ev.titleAr)}</div>` : ''}
       ${ev.sources ? `<div class="srcLine">📚 ${esc(ev.sources)}</div>` : ''}
-      <div>${[ev.category, ev.region].filter(Boolean).map(v => `<span class="chip">${esc(v)}</span>`).join('')}</div>
-      ${ev.source_url ? `<a href="${esc(ev.source_url)}" target="_blank" rel="noopener">Source →</a>` : ''}
+      <div>${[ev.category, ev.region].filter(Boolean).map(v => `<span class="chip">${esc(v)}</span>`).join('')} <button class="chip shareChip" onclick="shareEvent(${ev.id})" title="Share">⇪</button></div>
+      <div><a class="evPageLink" href="/e/${ev.id}" target="_blank" rel="noopener">🔗 Share page</a> ${ev.source_url ? `· <a href="${esc(ev.source_url)}" target="_blank" rel="noopener">Source →</a>` : ''}</div>
     </div>`;}).join('') || T('noMatchE');
   $('#ePage').textContent = `Page ${d.page} of ${Math.max(1, Math.ceil(d.total / d.per))}`;
   $('#ePrev').disabled = d.page <= 1;
@@ -357,6 +357,15 @@ async function loadDaily() {
     box.hidden = false;
   } catch (e) { /* daily card is decorative — never block the page */ }
 }
+
+// ---------- event share ----------
+window.shareEvent = id => {
+  const url = `https://turath-green.vercel.app/e/${id}`;
+  const done = ok => { toast(ok ? T('shareCopied') : (T('share') + '?')); };
+  const viaHash = () => { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(() => done(true)).catch(() => fallbackCopy(url, done)); else fallbackCopy(url, done); };
+  if (navigator.share) navigator.share({ title: 'Turath — Islamic history', url }).then(() => done(true)).catch(() => viaHash());
+  else viaHash();
+};
 
 // ---------- init ----------
 if (!CFG || !CFG.API_BASE || !CFG.API_KEY) { bootErr('Config missing — API not reachable. Reload the page.'); }
