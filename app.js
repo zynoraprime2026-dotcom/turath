@@ -85,7 +85,7 @@ window.suggAct = async (id, action) => {
   const opts = action === 'delete'
     ? { method: 'DELETE', headers: H_ADMIN() }
     : { method: 'PUT', headers: H_ADMIN(), body: JSON.stringify({ status: action }) };
-  const r = await fetch(`${CFG.API_BASE}/api/suggestions/${id}`, opts);
+  const r = await fetch(`${CFG.API_BASE}/api/suggestions?id=${id}`, opts);
   if (r.ok) { loadSugg(); loadM(); }
 };
 window.openSuggest = () => {
