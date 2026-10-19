@@ -68,15 +68,15 @@ async function loadM() {
   renderM(d);
 }
 function renderM(d) {
-  $('#mStats').textContent = `${d.total} manuscript${d.total === 1 ? '' : 's'} found — page ${d.page}`;
+  $('#mStats').textContent = `${d.total} ${LANG === 'ar' ? 'نتيجة' : 'manuscripts found'} — ${T('page')} ${d.page}`;
   $('#mGrid').innerHTML = d.manuscripts.map(m => `
     <div class="card" onclick="showM(${m.id})">
       <div class="thumb">${m.imageUrl ? `<img src="${esc(m.imageUrl)}" alt="" loading="lazy">` : '📜'}</div>
       <div class="cbody">
         <h3>${esc(LANG === 'ar' && m.titleAr ? m.titleAr : m.title)}</h3>
         ${m.titleAr && LANG !== 'ar' ? `<div class="arTitle">${esc(m.titleAr)}</div>` : ''}
-        <div class="meta">${esc(m.author || 'Unknown')}${m.century ? ' · ' + m.century + 'th c. AH' : ''}</div>
-        <div class="desc">${esc(m.description)}</div>
+        <div class="meta">${esc(m.author || 'Unknown')}${m.century ? ' · ' + m.century + ' ' + (LANG === 'ar' ? 'هـ' : 'th c. AH') : ''}</div>
+        <div class="desc">${esc(LANG === 'ar' && m.descriptionAr ? m.descriptionAr : m.description)}</div>
         <div>${['language','subject','region'].filter(f => m[f]).map(f => `<span class="chip">${esc(m[f])}</span>`).join('')}</div>
       </div>
     </div>`).join('') || T('noMatchM');
