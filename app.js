@@ -10,9 +10,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 const I18N = {
-  en: { manuscripts: 'Manuscripts', history: 'History', about: 'About', devs: 'Developers', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Database', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View manuscript scan (library website)', readText: 'Read the full text (free PDF)', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', share: '⇪ Share', shareCopied: 'Link copied ✓', daily: 'Manuscript of the Day', open: 'View', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending' },
-  ar: { manuscripts: 'المخطوطات', history: 'التاريخ', about: 'عن المشروع', devs: 'للمطورين', search: 'بحث', lang: 'English', heroM: 'قاعدة بيانات المخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض المخطوط على موقع المكتبة', readText: 'اقرأ النص الكامل (نسخة مجانية)', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', share: '⇪ مشاركة', shareCopied: 'تم نسخ الرابط ✓', daily: 'مخطوط اليوم', open: 'عرض', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة' }
-};
+  en: { manuscripts: 'Manuscripts', history: 'History', about: 'About', devs: 'Developers', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Database', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View manuscript scan (library website)', readText: 'Read the full text (free PDF)', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', share: '⇪ Share', shareCopied: 'Link copied ✓', daily: 'Manuscript of the Day', open: 'View', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending', stories: 'Stories', quranFrom: 'From the Quran', sunnahFrom: 'From the Sunnah', verses: 'verses', hadiths: 'hadith', ayahRef: 'Quran', grade: 'Grade' },
+  ar: { manuscripts: 'المخطوطات', history: 'التاريخ', about: 'عن المشروع', devs: 'للمطورين', search: 'بحث', lang: 'English', heroM: 'قاعدة بيانات المخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض المخطوط على موقع المكتبة', readText: 'اقرأ النص الكامل (نسخة مجانية)', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', share: '⇪ مشاركة', shareCopied: 'تم نسخ الرابط ✓', daily: 'مخطوط اليوم', open: 'عرض', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة', stories: 'القصص', quranFrom: 'من القرآن', sunnahFrom: 'من السنة', verses: 'آيات', hadiths: 'أحاديث', ayahRef: 'قرآن', grade: 'الدرجة' }};
 let LANG = localStorage.getItem('turathLang') || 'en';
 const T = k => I18N[LANG][k];
 function applyLang() {
@@ -23,6 +22,7 @@ function applyLang() {
   document.querySelector('[data-tab="events"]').textContent = T('history');
   document.querySelector('[data-tab="about"]').textContent = T('about');
   document.querySelector('[data-tab="devs"]').textContent = T('devs');
+  document.querySelector('[data-tab="stories"]').textContent = T('stories');
   $('#tab-manuscripts h1').textContent = T('heroM');
   $('#tab-manuscripts .hero p').textContent = T('heroP');
   $('#tab-events h1').textContent = T('heroE');
@@ -378,3 +378,83 @@ loadDaily();
 // deep link: #m/<id> opens that manuscript
 const deep = location.hash.match(/^#m\/(\d+)$/);
 if (deep) showM(parseInt(deep[1]));
+
+
+// ---------- prophetic stories (Qasas) — powered by the Ilm API ----------
+const qasasState = { parts: null, index: null, part: 'beginning', loaded: false };
+
+async function loadQasas() {
+  if (qasasState.loaded) { renderQasas(); return; }
+  $('#qasasStats').textContent = LANG === 'ar' ? 'جارٍ التحميل…' : 'Loading…';
+  try {
+    const res = await fetch(CFG.ILM_API_BASE + '/v1/stories', { headers: { 'x-api-key': CFG.ILM_API_KEY } });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'load failed');
+    qasasState.parts = data.parts;
+    qasasState.index = data.stories;
+    qasasState.loaded = true;
+    renderQasas();
+  } catch (e) {
+    $('#qasasStats').textContent = (LANG === 'ar' ? 'تعذر تحميل القصص: ' : 'Could not load stories: ') + e.message;
+  }
+}
+
+function renderQasas() {
+  const parts = qasasState.parts, idx = qasasState.index;
+  $('#qasasParts').innerHTML = parts.map(p =>
+    `<button class="qchip${p.id === qasasState.part ? ' on' : ''}" data-part="${p.id}">
+       <span class="qchip-ar">${p.name_arabic}</span>${LANG === 'ar' ? '' : esc(p.name_english)}
+     </button>`).join('');
+  document.querySelectorAll('#qasasParts .qchip').forEach(b =>
+    b.addEventListener('click', () => { qasasState.part = b.dataset.part; renderQasas(); }));
+  const list = idx.filter(s => s.part === qasasState.part).sort((x, y) => x.order - y.order);
+  const partMeta = parts.find(p => p.id === qasasState.part);
+  $('#qasasStats').textContent = `${list.length} ${LANG === 'ar' ? 'مدخل' : 'entries'} — ${LANG === 'ar' ? esc(partMeta.name_english) + ' · ' + partMeta.name_arabic : esc(partMeta.name_english) + ' · ' + partMeta.name_arabic}`;
+  $('#qasasList').innerHTML = list.map(s => `
+    <div class="tevent qstory" data-id="${s.id}" style="cursor:pointer">
+      <span class="qorder">${String(s.order).padStart(2, '0')}</span>
+      <h3>${esc(s.name_english)} <span class="arTitle" style="display:inline;margin-inline-start:8px">${s.name_arabic}</span></h3>
+      <div class="qera">${esc(s.title_english)}</div>
+      <div class="qmeta">${esc(s.era)} · ${s.ayah_count} ${T('verses')} · ${s.hadith_count} ${T('hadiths')}</div>
+    </div>`).join('');
+  document.querySelectorAll('#qasasList .qstory').forEach(el =>
+    el.addEventListener('click', () => showStory(el.dataset.id)));
+}
+
+async function showStory(id) {
+  $('#modalContent').innerHTML = '<p style="color:var(--mut)">…</p>';
+  $('#modal').hidden = false;
+  try {
+    const res = await fetch(CFG.ILM_API_BASE + '/v1/stories/' + encodeURIComponent(id), { headers: { 'x-api-key': CFG.ILM_API_KEY } });
+    const s = await res.json();
+    if (!res.ok) throw new Error(s.error || 'load failed');
+    const partName = (qasasState.parts || []).find(p => p.id === s.part);
+    $('#modalContent').innerHTML = `
+      <div class="detail">
+        <h2 style="text-align:center">${s.name_arabic}</h2>
+        <div style="text-align:center;color:var(--gold);font-weight:600">${esc(s.name_english)}</div>
+        <div style="text-align:center;color:var(--mut);font-size:.9rem;margin-top:2px">${esc(s.title_english)}</div>
+        <p style="text-align:center;margin-top:8px"><span class="chip">${esc(s.era)}</span>${partName ? `<span class="chip">${esc(partName.name_english)}</span>` : ''}</p>
+        ${s.summary.map(p => `<p>${esc(p)}</p>`).join('')}
+        ${s.ayat.length ? `<h3>${T('quranFrom')} · القرآن</h3>
+          ${s.ayat.map(a => `
+            <div class="qayah">
+              <span class="qref">${esc(a.reference)}</span>
+              <div class="arText">${a.text_arabic}</div>
+              <div class="qtr">${esc(a.translation)}</div>
+            </div>`).join('')}` : ''}
+        ${s.hadith.length ? `<h3>${T('sunnahFrom')} · السنة</h3>
+          ${s.hadith.map(h => `
+            <div class="qayah">
+              <div class="chipline"><span class="chip">${esc(h.source)}</span>${h.grade ? `<span class="chip">${T('grade')}: ${esc(h.grade)}</span>` : ''}</div>
+              <div class="qtr">${esc(h.text_english)}</div>
+              ${h.text_arabic ? `<div class="arText">${h.text_arabic}</div>` : ''}
+            </div>`).join('')}` : ''}
+      </div>`;
+  } catch (e) {
+    $('#modalContent').innerHTML = `<p style="color:var(--danger)">${esc(e.message)}</p>`;
+  }
+}
+
+// lazy-load the first time the Stories tab is opened
+document.querySelector('[data-tab="stories"]').addEventListener('click', loadQasas);
