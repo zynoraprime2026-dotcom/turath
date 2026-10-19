@@ -166,14 +166,21 @@ function renderM(d) {
   applyAdmin();
 }
 let curM = null;
+function toast(msg) {
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#5a1f1f;color:#f3d9d9;padding:10px 18px;border-radius:10px;z-index:99;font-size:.9rem;max-width:85vw;text-align:center';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
 async function showM(id) {
   let d;
   try {
     const r = await fetch(`${CFG.API_BASE}/api/manuscripts/${id}`, { headers: H() });
     d = await r.json();
     if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
-    renderDetail(d.manuscript); document.title = 'OK: showM ' + id;
-  } catch (e) { const msg = '⚠ showM: ' + (e.message || 'API unreachable'); document.title = msg; console.error(msg); }
+    renderDetail(d.manuscript);
+  } catch (e) { toast('⚠ ' + (e.message || 'API unreachable')); console.error('showM failed:', e); }
 }
 async function randomM() {
   const r = await fetch(`${CFG.API_BASE}/api/manuscripts/random`, { headers: H() });
