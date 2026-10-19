@@ -6,8 +6,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 const I18N = {
-  en: { manuscripts: 'Manuscripts', history: 'History', about: 'About', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Database', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View digitized copy / catalog entry', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending' },
-  ar: { manuscripts: 'المخطوطات', history: 'التاريخ', about: 'عن المشروع', search: 'بحث', lang: 'English', heroM: 'قاعدة بيانات المخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض النسخة الرقمية', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة' }
+  en: { manuscripts: 'Manuscripts', history: 'History', about: 'About', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Database', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View digitized copy / catalog entry', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', share: '⇪ Share', shareCopied: 'Link copied ✓', daily: 'Manuscript of the Day', open: 'View', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending' },
+  ar: { manuscripts: 'المخطوطات', history: 'التاريخ', about: 'عن المشروع', search: 'بحث', lang: 'English', heroM: 'قاعدة بيانات المخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض النسخة الرقمية', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', share: '⇪ مشاركة', shareCopied: 'تم نسخ الرابط ✓', daily: 'مخطوط اليوم', open: 'عرض', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة' }
 };
 let LANG = localStorage.getItem('turathLang') || 'en';
 const T = k => I18N[LANG][k];
@@ -106,6 +106,7 @@ window.openSuggest = () => {
       </form>
     </div>`;
   $('#modal').hidden = false;
+  if (curM) history.replaceState(null, '', '#m/' + curM.id);
 };
 window.submitSugg = async e => {
   e.preventDefault();
@@ -194,6 +195,7 @@ window.uploadImg = async input => {
   if (r.ok) { showM(m.id); loadM(); } else { if (btn) btn.textContent = d.error || 'Error'; }
 };
 function renderDetail(m) {
+  curM = m;
   const chain = Array.isArray(m.chain) ? m.chain : [];
   $('#modalContent').innerHTML = `
     <div class="detail">
@@ -209,6 +211,7 @@ function renderDetail(m) {
       ${(m.digitalUrl || m.digital_url) ? `<p><a href="${esc(m.digitalUrl || m.digital_url)}" target="_blank" rel="noopener">${T('viewCopy')} →</a></p>` : ''}
       <div class="modalActions">
         <button id="citeBtn" class="ghost" onclick="copyCitation()">${T('cite')}</button>
+        <button id="shareBtn" class="ghost" onclick="shareM()">${T('share')}</button>
         ${sessionStorage.getItem('turathAdmin') ? `<span><input type="file" id="mImgInput" accept="image/jpeg,image/png,image/webp" onchange="uploadImg(this)" style="display:none">
         <button id="mImgUploadBtn" class="ghost" onclick="document.getElementById('mImgInput').click()">⬆ ${T('upload')}</button></span>` : ''}
       </div>
@@ -294,8 +297,46 @@ $('#eAdd').addEventListener('submit', async e => {
 $('#modalClose').addEventListener('click', () => $('#modal').hidden = true);
 $('#modal').addEventListener('click', e => { if (e.target === $('#modal')) $('#modal').hidden = true; });
 
+// ---------- share & deep links ----------
+window.shareM = () => {
+  const m = curM; if (!m) return;
+  const url = `https://turath-green.vercel.app/#m/${m.id}`;
+  const done = ok => { const b = $('#shareBtn'); if (b) { b.textContent = ok ? T('shareCopied') : T('share'); setTimeout(() => { if ($('#shareBtn')) $('#shareBtn').textContent = T('share'); }, 2000); } };
+  const viaHash = () => { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(() => done(true)).catch(() => fallbackCopy(url, done)); else fallbackCopy(url, done); };
+  if (navigator.share) navigator.share({ title: m.title, text: (m.description || '').slice(0, 120), url }).then(() => done(true)).catch(() => viaHash());
+  else viaHash();
+};
+const clearHash = () => { if (location.hash.startsWith('#m/')) history.replaceState(null, '', location.pathname); };
+$('#modalClose').addEventListener('click', clearHash);
+
+// ---------- manuscript of the day ----------
+async function loadDaily() {
+  try {
+    const r = await fetch(`${CFG.API_BASE}/api/manuscripts/daily`, { headers: H() });
+    if (!r.ok) return;
+    const d = await r.json();
+    const m = d.manuscript;
+    const box = $('#dailyBox'); if (!box) return;
+    box.innerHTML = `
+      <div class="dailyHead">✦ ${T('daily')}</div>
+      <div class="dailyBody" onclick="showM(${m.id})">
+        <div class="dailyMain">
+          <h3>${esc(LANG === 'ar' && m.titleAr ? m.titleAr : m.title)}</h3>
+          <p>${esc((LANG === 'ar' && m.descriptionAr ? m.descriptionAr : m.description || '').slice(0, 160))}${(m.description || '').length > 160 ? '…' : ''}</p>
+          <div class="dailyMeta">${esc(m.author || 'Unknown author')}${m.century ? ' · ' + m.century + ' ' + (LANG === 'ar' ? 'هـ' : 'th c. AH') : ''}</div>
+        </div>
+        ${m.imageUrl ? `<img class="dailyImg" src="${esc(m.imageUrl)}" alt="" loading="lazy">` : '<div class="dailyImg dailyEmoji">📜</div>'}
+      </div>`;
+    box.hidden = false;
+  } catch (e) { /* daily card is decorative — never block the page */ }
+}
+
 // ---------- init ----------
 applyAdmin();
 applyLang();
 loadM();
 loadE();
+loadDaily();
+// deep link: #m/<id> opens that manuscript
+const deep = location.hash.match(/^#m\/(\d+)$/);
+if (deep) showM(parseInt(deep[1]));

@@ -79,3 +79,16 @@ button.primary:hover{background:#37a583}
 .tevent::before{content:'';position:absolute;inset-inline-start:-29px;top:20px;width:10px;height:10px;border-radius:50%;background:#b8860b;box-shadow:0 0 0 3px #0a0d0a}
 .cdiv{margin:22px 0 8px;color:#b8860b;font-weight:700;letter-spacing:1px;text-align:center}
 .cdiv:first-child{margin-top:4px}
+
+/* ---------- manuscript of the day ---------- */
+.dailyCard{background:#1E4344;border:1px solid #2A5556;border-radius:14px;padding:16px 18px;margin:0 0 22px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.dailyHead{color:#C9A96A;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
+.dailyBody{display:flex;gap:14px;align-items:center;cursor:pointer;border-radius:10px}
+.dailyBody:hover{background:rgba(201,169,106,.07)}
+.dailyMain{flex:1;min-width:0}
+.dailyMain h3{margin:0 0 6px;color:#F3ECDA}
+.dailyMain p{margin:0 0 8px;font-size:.92rem;color:#D8CBA8}
+.dailyMeta{font-size:.8rem;color:#8FB3B0}
+.dailyImg{width:74px;height:74px;object-fit:cover;border-radius:10px;flex:none}
+.dailyEmoji{display:flex;align-items:center;justify-content:center;font-size:2rem;background:#0F2620}
+[dir="rtl"] .dailyBody{flex-direction:row-reverse}
