@@ -63,3 +63,5 @@ button.primary:hover{background:#37a583}
 .chain li{margin:4px 0;color:var(--ink)}
 .sources{color:var(--mut);font-size:.9rem;font-style:italic}
 .srcLine{margin-top:6px;font-size:.8rem;color:var(--mut)}
+
+.modal[hidden]{display:none!important}
