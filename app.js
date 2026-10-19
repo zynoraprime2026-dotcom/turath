@@ -172,8 +172,8 @@ async function showM(id) {
     const r = await fetch(`${CFG.API_BASE}/api/manuscripts/${id}`, { headers: H() });
     d = await r.json();
     if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
-    renderDetail(d.manuscript);
-  } catch (e) { $('#mStats').innerHTML = `<span style="color:#e08080">⚠ showM: ${esc(e.message || 'API unreachable')}</span>`; }
+    renderDetail(d.manuscript); document.title = 'OK: showM ' + id;
+  } catch (e) { const msg = '⚠ showM: ' + (e.message || 'API unreachable'); document.title = msg; console.error(msg); }
 }
 async function randomM() {
   const r = await fetch(`${CFG.API_BASE}/api/manuscripts/random`, { headers: H() });
