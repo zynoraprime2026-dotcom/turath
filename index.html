@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Turath — Islamic Manuscripts & History</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="star">✦</span> Turath <span class="ar">تراث</span></div>
+  <nav>
+    <button data-tab="manuscripts" class="active">Manuscripts</button>
+    <button data-tab="events">History</button>
+    <button data-tab="about">About</button>
+    <button id="adminBtn" title="Admin mode">⚙</button>
+  </nav>
+</header>
+
+<main>
+  <!-- MANUSCRIPTS -->
+  <section id="tab-manuscripts" class="tab active">
+    <div class="hero">
+      <h1>Islamic Manuscripts Database</h1>
+      <p>Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script and holding institution.</p>
+    </div>
+    <div class="controls">
+      <input id="mSearch" type="search" placeholder="Search title, author, description…">
+      <select id="mLanguage"><option value="">Language: all</option></select>
+      <select id="mSubject"><option value="">Subject: all</option></select>
+      <select id="mRegion"><option value="">Region: all</option></select>
+      <button id="mSearchBtn" class="primary">Search</button>
+    </div>
+    <div id="mStats" class="statline"></div>
+    <div id="mGrid" class="grid"></div>
+    <div class="pager"><button id="mPrev">← Prev</button><span id="mPage"></span><button id="mNext">Next →</button></div>
+
+    <details id="mForm" class="adminBox" style="display:none">
+      <summary>+ Add manuscript (admin)</summary>
+      <form id="mAdd">
+        <input name="title" placeholder="Title *" required>
+        <input name="author" placeholder="Author">
+        <input name="dateWritten" placeholder="Date written (e.g. c. 830 CE / 215 AH)">
+        <input name="century" type="number" min="1" max="15" placeholder="Century (Hijri)">
+        <input name="language" placeholder="Language (Arabic, Persian…)">
+        <input name="script" placeholder="Script (Naskh, Nastaliq…)">
+        <input name="subject" placeholder="Subject (Quran & Tafsir, Medicine…)">
+        <input name="region" placeholder="Region (Andalus, Baghdad…)">
+        <input name="holding" placeholder="Holding institution">
+        <input name="imageUrl" placeholder="Image URL (optional)">
+        <input name="digitalUrl" placeholder="Digitized copy / catalog URL (optional)">
+        <textarea name="description" rows="3" placeholder="Description"></textarea>
+        <button class="primary" type="submit">Save manuscript</button>
+        <span class="formMsg"></span>
+      </form>
+    </details>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="tab-events" class="tab">
+    <div class="hero">
+      <h1>Islamic History Timeline</h1>
+      <p>Key events across 14 centuries — from the revelation era to the modern Islamic world.</p>
+    </div>
+    <div class="controls">
+      <input id="eSearch" type="search" placeholder="Search events…">
+      <select id="eCategory"><option value="">Category: all</option></select>
+      <select id="eRegion"><option value="">Region: all</option></select>
+      <button id="eSearchBtn" class="primary">Search</button>
+    </div>
+    <div id="eStats" class="statline"></div>
+    <div id="eList" class="timeline"></div>
+    <div class="pager"><button id="ePrev">← Prev</button><span id="ePage"></span><button id="eNext">Next →</button></div>
+
+    <details id="eForm" class="adminBox" style="display:none">
+      <summary>+ Add event (admin)</summary>
+      <form id="eAdd">
+        <input name="title" placeholder="Event title *" required>
+        <input name="yearGregorian" type="number" placeholder="Year CE">
+        <input name="yearHijri" type="number" placeholder="Year AH">
+        <input name="category" placeholder="Category (Founding, Scholarship…)">
+        <input name="region" placeholder="Region">
+        <input name="sourceUrl" placeholder="Source URL (optional)">
+        <textarea name="description" rows="3" placeholder="Description"></textarea>
+        <button class="primary" type="submit">Save event</button>
+        <span class="formMsg"></span>
+      </form>
+    </details>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="tab-about" class="tab">
+    <div class="hero">
+      <h1>About Turath</h1>
+      <p>Turath (تراث, "heritage") is a database of Islamic manuscripts and historical events. It exists to preserve and share the intellectual heritage of the Ummah — the sciences, arts, history and scriptures that shaped civilisation for over fourteen centuries.</p>
+      <p class="small">Built with a Vercel API and Postgres. Content is curated with respect; corrections are welcome via the admin panel.</p>
+    </div>
+  </section>
+</main>
+
+<div id="modal" class="modal" hidden>
+  <div class="modalBody">
+    <button id="modalClose" class="closeBtn">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
