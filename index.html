@@ -13,6 +13,7 @@
     <button data-tab="manuscripts" class="active">Manuscripts</button>
     <button data-tab="events">History</button>
     <button data-tab="about">About</button>
+    <button id="langBtn" title="Language">عربي</button>
     <button id="adminBtn" title="Admin mode">⚙</button>
   </nav>
 </header>
@@ -47,6 +48,10 @@
         <input name="subject" placeholder="Subject (Quran & Tafsir, Medicine…)">
         <input name="region" placeholder="Region (Andalus, Baghdad…)">
         <input name="holding" placeholder="Holding institution">
+        <input name="titleAr" placeholder="العنوان بالعربية (Arabic title)">
+        <input name="chain" placeholder="Chain of transmission, comma separated (e.g. Author, Student X, ...)">
+        <input name="sources" placeholder="Sources / references">
+        <textarea name="descriptionAr" rows="2" placeholder="الوصف بالعربية (Arabic description)"></textarea>
         <input name="imageUrl" placeholder="Image URL (optional)">
         <input name="digitalUrl" placeholder="Digitized copy / catalog URL (optional)">
         <textarea name="description" rows="3" placeholder="Description"></textarea>
@@ -81,6 +86,9 @@
         <input name="category" placeholder="Category (Founding, Scholarship…)">
         <input name="region" placeholder="Region">
         <input name="sourceUrl" placeholder="Source URL (optional)">
+        <input name="titleAr" placeholder="العنوان بالعربية (Arabic title)">
+        <input name="sources" placeholder="Sources / references">
+        <textarea name="descriptionAr" rows="2" placeholder="الوصف بالعربية (Arabic description)"></textarea>
         <textarea name="description" rows="3" placeholder="Description"></textarea>
         <button class="primary" type="submit">Save event</button>
         <span class="formMsg"></span>

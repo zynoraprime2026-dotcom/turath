@@ -55,3 +55,11 @@ button.primary:hover{background:#37a583}
 .detail p{margin-bottom:12px}
 .detail a{color:var(--teal)}
 @media(max-width:600px){.brand{font-size:1.2rem}nav button{padding:6px 12px;font-size:.85rem}}
+/* bilingual + chain styles */
+.arTitle{direction:rtl;font-family:"Amiri","Traditional Arabic",serif;color:var(--gold);font-size:.95rem;margin:2px 0}
+.arTitle.big{font-size:1.4rem;margin-bottom:8px}
+.arText{direction:rtl;text-align:right;font-family:"Amiri","Traditional Arabic",serif;font-size:1.05rem;line-height:1.9}
+.chain{margin:6px 0 14px;padding-left:20px;border-right:none}
+.chain li{margin:4px 0;color:var(--ink)}
+.sources{color:var(--mut);font-size:.9rem;font-style:italic}
+.srcLine{margin-top:6px;font-size:.8rem;color:var(--mut)}
