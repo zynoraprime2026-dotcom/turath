@@ -23,6 +23,7 @@
     <button data-tab="manuscripts" class="active">Manuscripts</button>
     <button data-tab="events">History</button>
     <button data-tab="about">About</button>
+    <button data-tab="devs">Developers</button>
     <button id="randomBtn" title="Random manuscript">🎲</button>
     <button id="langBtn" title="Language">عربي</button>
     <button id="adminBtn" title="Admin mode">⚙</button>
@@ -121,6 +122,58 @@
       <h1>About Turath</h1>
       <p>Turath (تراث, "heritage") is a database of Islamic manuscripts and historical events. It exists to preserve and share the intellectual heritage of the Ummah — the sciences, arts, history and scriptures that shaped civilisation for over fourteen centuries. Coverage is global, as Islam itself is global: from Andalus to Nusantara, Timbuktu to Samarkand, Istanbul to Delhi.</p>
       <p class="small">Built with a Vercel API and Postgres. Content is curated with respect; corrections are welcome via the admin panel.</p>
+    </div>
+  </section>
+  <section id="tab-devs" class="tab">
+    <div class="hero">
+      <h1>Turath Public API</h1>
+      <p>Free REST API for the Turath manuscript &amp; history database — for apps, research, dashboards and sites. واجهة برمجية مجانية لمطورين قاعدة بيانات تراث.</p>
+    </div>
+    <div class="apiDocs">
+      <h3>Base URL</h3>
+      <pre>https://turath-api.vercel.app</pre>
+
+      <h3>Authentication</h3>
+      <p>Send your API key in the <code>x-api-key</code> header. The public read key below is free for everyone:</p>
+      <pre id="pubKey">x-api-key: turath_b0e400ec9d4e0bd994761ec18dd65052</pre>
+      <p class="small">Limits: 300 requests/hour per key. CORS is open — call it from any website. Responses are JSON.</p>
+
+      <h3>Quick start</h3>
+      <pre>curl -H "x-api-key: turath_b0e400ec9d4e0bd994761ec18dd65052" \
+  "https://turath-api.vercel.app/api/manuscripts?q=algebra"</pre>
+      <pre>fetch('https://turath-api.vercel.app/api/manuscripts/random', {
+  headers: { 'x-api-key': 'turath_b0e400ec9d4e0bd994761ec18dd65052' }
+}).then(r => r.json()).then(d => console.log(d.manuscript));</pre>
+
+      <h3>Endpoints</h3>
+      <table class="epTable">
+        <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+        <tr><td>GET</td><td><code>/api/manuscripts</code></td><td>List manuscripts. Query: <code>q</code>, <code>language</code>, <code>subject</code>, <code>region</code>, <code>page</code>. Returns <code>{ total, page, per, manuscripts[] }</code></td></tr>
+        <tr><td>GET</td><td><code>/api/manuscripts/random</code></td><td>One random manuscript</td></tr>
+        <tr><td>GET</td><td><code>/api/manuscripts/daily</code></td><td>Manuscript of the Day (same one all day)</td></tr>
+        <tr><td>GET</td><td><code>/api/manuscripts/:id</code></td><td>Single manuscript by id</td></tr>
+        <tr><td>GET</td><td><code>/api/events</code></td><td>List historical events. Query: <code>q</code>, <code>category</code>, <code>region</code>, <code>page</code></td></tr>
+        <tr><td>GET</td><td><code>/api/events/:id</code></td><td>Single event by id</td></tr>
+        <tr><td>GET</td><td><code>/api/stats</code></td><td>Archive counts (manuscripts, events, subjects…)</td></tr>
+        <tr><td>POST</td><td><code>/api/suggestions</code></td><td>Suggest a manuscript (public). Body: <code>{ title, author, language, subject, region, description, submitter }</code></td></tr>
+        <tr><td>GET</td><td><code>/api/m/:id</code></td><td>Shareable HTML page — no key needed, no JSON</td></tr>
+        <tr><td>POST</td><td><code>/api/manuscripts</code>, <code>/api/events</code></td><td>Add records — curators only (also needs <code>x-admin-pass</code>)</td></tr>
+      </table>
+
+      <h3>Manuscript fields</h3>
+      <pre>{
+  "id": 3, "title": "Al-Kitab al-Mukhtasar fi Hisab al-Jabr wal-Muqabala",
+  "titleAr": "الكتاب المختصر في حساب الجبر والمقابلة", "author": "Al-Khwarizmi",
+  "dateWritten": "c. 820 CE / 204 AH", "century": 3, "language": "Arabic",
+  "script": "Naskh", "subject": "Mathematics", "region": "Baghdad",
+  "holding": "Bodleian Library, Oxford", "chain": [], "sources": "…",
+  "digitalUrl": "https://…", "imageUrl": "https://…",
+  "description": "The Compendious Book on Calculation…",
+  "descriptionAr": "الكتاب المفصل في حساب الجبر…"
+}</pre>
+
+      <h3>Attribution</h3>
+      <p class="small">Data is free to use under CC BY 4.0 — credit "Turath — Islamic Manuscripts Database" with a link to this site. Curated content; please verify against primary sources for scholarly work.</p>
     </div>
   </section>
 </main>
