@@ -173,7 +173,7 @@ async function showM(id) {
     d = await r.json();
     if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
     renderDetail(d.manuscript);
-  } catch (e) { alert('⚠ ' + (e.message || 'API unreachable')); }
+  } catch (e) { $('#mStats').innerHTML = `<span style="color:#e08080">⚠ showM: ${esc(e.message || 'API unreachable')}</span>`; }
 }
 async function randomM() {
   const r = await fetch(`${CFG.API_BASE}/api/manuscripts/random`, { headers: H() });
