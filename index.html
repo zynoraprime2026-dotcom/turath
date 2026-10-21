@@ -50,7 +50,10 @@
       <select id="mRegion"><option value="">Region: all</option></select>
       <button id="mSearchBtn" class="primary">Search</button>
     </div>
+    <div id="trendingBox" class="trendingBox" hidden></div>
     <div id="mStats" class="statline"></div>
+    <div class="viewBar"><button id="viewGrid" class="viewBtn active">▦ Grid</button><button id="viewTimeline" class="viewBtn">⏳ Timeline</button></div>
+    <div id="tlBox" class="tlBox" style="display:none"></div>
     <div id="mGrid" class="grid"></div>
     <div class="pager"><button id="mPrev">← Prev</button><span id="mPage"></span><button id="mNext">Next →</button></div>
 
@@ -78,6 +81,7 @@
         <input name="sources" placeholder="Sources / references">
         <textarea name="descriptionAr" rows="2" placeholder="الوصف بالعربية (Arabic description)"></textarea>
         <input name="imageUrl" placeholder="Image URL (optional)">
+        <input name="audioUrl" placeholder="Audio URL — recitation (optional)">
         <input name="digitalUrl" placeholder="Digitized copy / catalog URL (optional)">
         <textarea name="description" rows="3" placeholder="Description"></textarea>
         <button class="primary" type="submit">Save manuscript</button>
@@ -188,7 +192,7 @@
         <tr><td>GET</td><td><code>/api/manuscripts/:id</code></td><td>Single manuscript by id, with <code>related[]</code> recommendations</td></tr>
         <tr><td>GET</td><td><code>/api/events</code></td><td>List historical events. Query: <code>q</code>, <code>category</code>, <code>region</code>, <code>page</code></td></tr>
         <tr><td>GET</td><td><code>/api/events/:id</code></td><td>Single event by id</td></tr>
-        <tr><td>GET</td><td><code>/api/stats</code></td><td>Archive counts (manuscripts, events, subjects…)</td></tr>
+        <tr><td>GET</td><td><code>/api/stats</code></td><td>Archive counts (manuscripts, events, subjects…) plus <code>topSearches</code> — the most-searched terms in the last 30 days</td></tr>
         <tr><td>POST</td><td><code>/api/suggestions</code></td><td>Suggest a manuscript (public). Body: <code>{ title, author, language, subject, region, description, submitter }</code></td></tr>
         <tr><td>GET</td><td><code>/api/m/:id</code></td><td>Shareable HTML page — no key needed, no JSON</td></tr>
         <tr><td>POST</td><td><code>/api/manuscripts</code>, <code>/api/events</code></td><td>Add records — curators only (also needs <code>x-admin-pass</code>)</td></tr>
@@ -201,7 +205,7 @@
   "dateWritten": "c. 820 CE / 204 AH", "century": 3, "language": "Arabic",
   "script": "Naskh", "subject": "Mathematics", "region": "Baghdad",
   "holding": "Bodleian Library, Oxford", "chain": [], "sources": "…",
-  "digitalUrl": "https://…", "imageUrl": "https://…",
+  "digitalUrl": "https://…", "imageUrl": "https://…", "audioUrl": "https://… (optional recitation audio)",
   "description": "The Compendious Book on Calculation…",
   "descriptionAr": "الكتاب المفصل في حساب الجبر…"
 }</pre>

@@ -10,8 +10,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 const I18N = {
-  en: { manuscripts: 'Library', history: 'History', about: 'About', devs: 'Developers', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Digital Library', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View manuscript scan (library website)', readText: 'Download the full text (free)', readNow: 'Read in the library', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', share: '⇪ Share', shareCopied: 'Link copied ✓', daily: 'Manuscript of the Day', open: 'View', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending', stories: 'Stories', assistant: 'Assistant', quranFrom: 'From the Quran', sunnahFrom: 'From the Sunnah', verses: 'verses', hadiths: 'hadith', ayahRef: 'Quran', grade: 'Grade' },
-  ar: { manuscripts: 'المكتبة', history: 'التاريخ', about: 'عن المشروع', devs: 'للمطورين', search: 'بحث', lang: 'English', heroM: 'المكتبة الرقمية للمخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض المخطوط على موقع المكتبة', readText: 'تنزيل النص الكامل (مجانا)', readNow: 'اقرأ في المكتبة', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', share: '⇪ مشاركة', shareCopied: 'تم نسخ الرابط ✓', daily: 'مخطوط اليوم', open: 'عرض', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة', stories: 'القصص', assistant: 'المساعد', quranFrom: 'من القرآن', sunnahFrom: 'من السنة', verses: 'آيات', hadiths: 'أحاديث', ayahRef: 'قرآن', grade: 'الدرجة' }};
+  en: { manuscripts: 'Library', history: 'History', about: 'About', devs: 'Developers', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Digital Library', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View manuscript scan (library website)', readText: 'Download the full text (free)', readNow: 'Read in the library', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', share: '⇪ Share', shareCopied: 'Link copied ✓', daily: 'Manuscript of the Day', open: 'View', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending', stories: 'Stories', assistant: 'Assistant', quranFrom: 'From the Quran', sunnahFrom: 'From the Sunnah', verses: 'verses', hadiths: 'hadith', ayahRef: 'Quran', grade: 'Grade', trending: '✦ Trending searches', timeline: '⏳ Timeline', grid: '▦ Grid', listen: '🎧 Listen — Quran recitation (via Wikimedia Commons)', undated: 'Undated / other centuries', tlNote: 'Browse the whole library century by century (Hijri calendar).' },
+  ar: { manuscripts: 'المكتبة', history: 'التاريخ', about: 'عن المشروع', devs: 'للمطورين', search: 'بحث', lang: 'English', heroM: 'المكتبة الرقمية للمخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض المخطوط على موقع المكتبة', readText: 'تنزيل النص الكامل (مجانا)', readNow: 'اقرأ في المكتبة', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', share: '⇪ مشاركة', shareCopied: 'تم نسخ الرابط ✓', daily: 'مخطوط اليوم', open: 'عرض', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة', stories: 'القصص', assistant: 'المساعد', quranFrom: 'من القرآن', sunnahFrom: 'من السنة', verses: 'آيات', hadiths: 'أحاديث', ayahRef: 'قرآن', grade: 'الدرجة', trending: '✦ الأكثر بحثا', timeline: '⏳ الخط الزمني', grid: '▦ الشبكة', listen: '🎧 استمع — تلاوة قرآنية (من ويكيميديا كومنز)', undated: 'غير مؤرخ / قرون أخرى', tlNote: 'تصفح المكتبة كاملة قرنا بعد قرن (بالتقويم الهجري).' }};
 let LANG = localStorage.getItem('turathLang') || 'en';
 const T = k => I18N[LANG][k];
 function applyLang() {
@@ -33,6 +33,9 @@ document.querySelector('[data-tab="assistant"]').textContent = T('assistant');
   $('#suggestBtn').textContent = T('suggest');
   $('#suggBox summary').textContent = T('suggAdmin');
   $('#mSearch').placeholder = LANG === 'ar' ? 'ابحث في العنوان أو المؤلف أو الوصف…' : 'Search title, author, description…';
+  $('#viewGrid').textContent = T('grid');
+  $('#viewTimeline').textContent = T('timeline');
+  if (!$('#trendingBox').hidden) loadTrending();
   $('#eSearch').placeholder = LANG === 'ar' ? 'ابحث في الأحداث…' : 'Search events…';
   if (mState.data) renderM(mState.data);
   if (eState.data) renderE(eState.data);
@@ -126,6 +129,62 @@ window.submitSugg = async e => {
 };
 $('#suggestBtn').addEventListener('click', openSuggest);
 
+// ---------- trending searches ----------
+async function loadTrending() {
+  try {
+    const r = await fetch(`${CFG.API_BASE}/api/stats`, { headers: H() });
+    if (!r.ok) return;
+    const d = await r.json();
+    const top = ((d.stats && d.stats.topSearches) || []).filter(x => x.query && x.n >= 2).slice(0, 8);
+    const box = $('#trendingBox'); if (!box) return;
+    if (!top.length) { box.hidden = true; return; }
+    box.innerHTML = `<span class="trendLabel">${T('trending')}</span>` +
+      top.map(x => `<button class="chip trendChip" data-q="${esc(x.query)}" onclick="trendSearch(this.dataset.q)">${esc(x.query)} <b>${x.n}</b></button>`).join('');
+    box.hidden = false;
+  } catch (e) { /* decorative — never block the page */ }
+}
+window.trendSearch = q => { $('#mSearch').value = q; mState.page = 1; loadM(); };
+
+// ---------- library view: grid / timeline ----------
+let mMode = 'grid';
+function setMMode(mode) {
+  mMode = mode;
+  $('#viewGrid').classList.toggle('active', mode === 'grid');
+  $('#viewTimeline').classList.toggle('active', mode === 'timeline');
+  $('#mGrid').style.display = mode === 'grid' ? '' : 'none';
+  $('#mPrev').closest('.pager').style.display = mode === 'grid' ? '' : 'none';
+  $('#tlBox').style.display = mode === 'timeline' ? '' : 'none';
+  if (mode === 'timeline') loadTimeline();
+}
+async function loadTimeline() {
+  const box = $('#tlBox');
+  box.innerHTML = `<p class="small">${LANG === 'ar' ? '…' : '…'}</p>`;
+  try {
+    const r = await fetch(`${CFG.API_BASE}/api/manuscripts?per=50`, { headers: H() });
+    const d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+    const byC = {};
+    for (const m of (d.manuscripts || [])) { const c = m.century ? Number(m.century) : null; (byC[c] = byC[c] || []).push(m); }
+    const keys = Object.keys(byC).map(k => k === 'null' ? null : Number(k)).sort((a, b) => (a === null) - (b === null) || a - b);
+    const suf = n => (n % 100 % 10 === 1 && n % 100 !== 11) ? 'st' : (n % 100 % 10 === 2 && n % 100 !== 12) ? 'nd' : (n % 100 % 10 === 3 && n % 100 !== 13) ? 'rd' : 'th';
+    box.innerHTML = keys.map(c => {
+      const list = byC[c];
+      const label = c === null ? T('undated') : `${c}${suf(c)} century AH`;
+      const ce = c === null ? '' : `≈ ${622 + (c - 1) * 100}–${622 + c * 100 - 1} CE`;
+      return `<div class="tlCentury">
+        <div class="tlHead"><span class="tlLabel">${esc(label)}</span>${ce ? `<span class="tlCe">${esc(ce)}</span>` : ''}<span class="tlCount">${list.length} ${LANG === 'ar' ? 'مخطوط' : (list.length === 1 ? 'manuscript' : 'manuscripts')}</span></div>
+        <div class="tlCards">${list.map(m => `
+          <div class="tlCard" onclick="showM(${m.id})">
+            <div class="tlThumb">${m.imageUrl ? `<img src="${esc(m.imageUrl)}" alt="" loading="lazy">` : '📜'}</div>
+            <div class="tlBody"><h4>${esc(LANG === 'ar' && m.titleAr ? m.titleAr : m.title)}</h4><div class="tlMeta">${esc(m.author || 'Unknown author')}</div></div>
+          </div>`).join('')}</div>
+      </div>`;
+    }).join('') || T('noMatchM');
+  } catch (e) { box.innerHTML = `<p class="small">⚠ ${esc(e.message || 'API unreachable')}</p>`; }
+}
+$('#viewGrid').addEventListener('click', () => setMMode('grid'));
+$('#viewTimeline').addEventListener('click', () => setMMode('timeline'));
+
 // ---------- manuscripts ----------
 async function loadM() {
   const q = $('#mSearch').value.trim();
@@ -141,6 +200,7 @@ async function loadM() {
   }
   mState.data = d;
   renderM(d);
+  loadTrending();
 }
 function renderM(d) {
   $('#mStats').textContent = `${d.total} ${LANG === 'ar' ? 'نتيجة' : 'manuscripts found'} — ${T('page')} ${d.page}`;
@@ -224,6 +284,7 @@ function renderDetail(m) {
   $('#modalContent').innerHTML = `
     <div class="detail">
       ${m.imageUrl ? `<img class="heroImg" src="${esc(m.imageUrl)}" alt="">` : ''}
+      ${m.audioUrl ? `<audio class="audioPlayer" controls preload="none" src="${esc(m.audioUrl)}"></audio><div class="audioNote small">${T('listen')}</div>` : ''}
       <h2>${esc(m.title)}</h2>
       ${m.titleAr ? `<div class="arTitle big">${esc(m.titleAr)}</div>` : ''}
       <div class="meta">${esc(m.author || 'Unknown author')}${m.date_written ? ' · ' + esc(m.date_written) : ''}</div>
@@ -398,6 +459,7 @@ applyAdmin();
 applyLang();
 loadM();
 loadE();
+loadTrending();
 loadDaily();
 // deep link: #m/<id> opens that manuscript
 const deep = location.hash.match(/^#m\/(\d+)$/);

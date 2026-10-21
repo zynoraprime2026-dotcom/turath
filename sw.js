@@ -1,5 +1,5 @@
 // Turath service worker: network-first shell so updates land immediately; cache keeps offline use.
-const CACHE = 'turath-v6';
+const CACHE = 'turath-v7';
 const SHELL = ['/', '/app.js', '/style.css', '/config.js', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png'];
 const PRECACHED = ['/', '/app.js', '/style.css', '/config.js', '/manifest.webmanifest'];
 
