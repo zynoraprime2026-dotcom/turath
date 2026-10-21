@@ -160,7 +160,7 @@ async function loadTimeline() {
   const box = $('#tlBox');
   box.innerHTML = `<p class="small">${LANG === 'ar' ? '…' : '…'}</p>`;
   try {
-    const r = await fetch(`${CFG.API_BASE}/api/manuscripts?per=50`, { headers: H() });
+    const r = await fetch(`${CFG.API_BASE}/api/manuscripts?per=100`, { headers: H() });
     const d = await r.json();
     if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
     const byC = {};
