@@ -10,8 +10,8 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 const I18N = {
-  en: { manuscripts: 'Library', history: 'History', about: 'About', devs: 'Developers', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Digital Library', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View manuscript scan (library website)', readText: 'Download the full text (free)', readNow: 'Read in the library', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', share: '⇪ Share', shareCopied: 'Link copied ✓', daily: 'Manuscript of the Day', open: 'View', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending', stories: 'Stories', assistant: 'Assistant', quranFrom: 'From the Quran', sunnahFrom: 'From the Sunnah', verses: 'verses', hadiths: 'hadith', ayahRef: 'Quran', grade: 'Grade', trending: '✦ Trending searches', timeline: '⏳ Timeline', grid: '▦ Grid', listen: '🎧 Listen — Quran recitation (via Wikimedia Commons)', undated: 'Undated / other centuries', tlNote: 'Browse the whole library century by century (Hijri calendar).' },
-  ar: { manuscripts: 'المكتبة', history: 'التاريخ', about: 'عن المشروع', devs: 'للمطورين', search: 'بحث', lang: 'English', heroM: 'المكتبة الرقمية للمخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض المخطوط على موقع المكتبة', readText: 'تنزيل النص الكامل (مجانا)', readNow: 'اقرأ في المكتبة', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', share: '⇪ مشاركة', shareCopied: 'تم نسخ الرابط ✓', daily: 'مخطوط اليوم', open: 'عرض', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة', stories: 'القصص', assistant: 'المساعد', quranFrom: 'من القرآن', sunnahFrom: 'من السنة', verses: 'آيات', hadiths: 'أحاديث', ayahRef: 'قرآن', grade: 'الدرجة', trending: '✦ الأكثر بحثا', timeline: '⏳ الخط الزمني', grid: '▦ الشبكة', listen: '🎧 استمع — تلاوة قرآنية (من ويكيميديا كومنز)', undated: 'غير مؤرخ / قرون أخرى', tlNote: 'تصفح المكتبة كاملة قرنا بعد قرن (بالتقويم الهجري).' }};
+  en: { manuscripts: 'Library', history: 'History', about: 'About', devs: 'Developers', search: 'Search', lang: 'عربي', heroM: 'Islamic Manuscripts Digital Library', heroP: 'Browse a curated archive of historic manuscripts — Quran, Hadith, Fiqh, science, medicine and more — with author, era, script, holding institution, chain of transmission and sources.', heroE: 'Islamic History Timeline', heroEP: 'Key events across 14 centuries — from the revelation era to the modern Islamic world.', found: 'found', page: 'Page', chain: 'Chain of transmission', sources: 'Sources', held: 'Held at', viewCopy: 'View manuscript scan (library website)', readText: 'Download the full text (free)', readNow: 'Read in the library', addM: '+ Add manuscript (admin)', addE: '+ Add event (admin)', century: 'c. AH', noMatchM: 'No manuscripts match your search.', noMatchE: 'No events match your search.', suggest: '✉ Suggest a manuscript', suggHead: 'Suggest a manuscript', suggP: 'Know a manuscript that belongs in this collection? Tell us — our curators review every suggestion.', suggTitle: 'Title *', suggAuthor: 'Author', suggLang: 'Language', suggSubj: 'Subject', suggRegion: 'Region', suggDesc: 'Why it matters / description', suggName: 'Your name (optional)', suggSend: 'Send suggestion', suggThx: 'JazakAllah khayran! Your suggestion was received and will be reviewed.', suggAdmin: '+ Visitor suggestions (admin)', approve: 'Approve & add', reject: 'Reject', del: 'Delete', none: 'No suggestions yet.', cite: 'Copy citation', copied: 'Copied ✓', share: '⇪ Share', shareCopied: 'Link copied ✓', daily: 'Manuscript of the Day', open: 'View', upload: 'Upload image', uploading: 'Uploading…', suggBy: 'Suggested by', pending: 'pending', stories: 'Stories', assistant: 'Assistant', quranFrom: 'From the Quran', sunnahFrom: 'From the Sunnah', verses: 'verses', hadiths: 'hadith', ayahRef: 'Quran', grade: 'Grade', trending: '✦ Trending searches', timeline: '⏳ Timeline', grid: '▦ Grid', listen: '🎧 Listen — Quran recitation (via Wikimedia Commons)', undated: 'Undated / other centuries', tlNote: 'Browse the whole library century by century (Hijri calendar).', scholars: 'Scholars', heroS: 'Scholars of the Archive', heroSP: 'The imams, jurists, historians and scientists behind the manuscripts — their lives, teachers and works, with links to their manuscripts preserved in this archive.', inArchive: 'In this archive', noMatchS: 'No scholars match your search.', works: 'Works' },
+  ar: { manuscripts: 'المكتبة', history: 'التاريخ', about: 'عن المشروع', devs: 'للمطورين', search: 'بحث', lang: 'English', heroM: 'المكتبة الرقمية للمخطوطات الإسلامية', heroP: 'تصفح مجموعة منتقاة من المخطوطات التاريخية — القرآن والحديث والفقه والعلوم والطب — مع المؤلف والعصر والخط وجهة الحفظ وسند النقل والمصادر.', heroE: 'الخط الزمني للتاريخ الإسلامي', heroEP: 'أحداث رئيسية عبر أربعة عشر قرنا — من عصر النبوة إلى العالم الإسلامي الحديث.', found: 'نتيجة', page: 'صفحة', chain: 'سند النقل', sources: 'المصادر', held: 'محفوظ في', viewCopy: 'عرض المخطوط على موقع المكتبة', readText: 'تنزيل النص الكامل (مجانا)', readNow: 'اقرأ في المكتبة', addM: '+ إضافة مخطوط (مشرف)', addE: '+ إضافة حدث (مشرف)', century: 'هـ', noMatchM: 'لا توجد مخطوطات مطابقة لبحثك.', noMatchE: 'لا توجد أحداث مطابقة لبحثك.', suggest: '✉ اقترح مخطوطا', suggHead: 'اقترح مخطوطا', suggP: 'تعرف مخطوطا يستحق أن يكون في هذه المجموعة؟ أخبرنا — يراجع المشرفون كل اقتراح.', suggTitle: 'العنوان *', suggAuthor: 'المؤلف', suggLang: 'اللغة', suggSubj: 'الموضوع', suggRegion: 'المنطقة', suggDesc: 'لماذا يهم / الوصف', suggName: 'اسمك (اختياري)', suggSend: 'إرسال الاقتراح', suggThx: 'جزاك الله خيرا! وصل اقتراحك وسيتم مراجعته.', suggAdmin: '+ اقتراحات الزوار (مشرف)', approve: 'موافقة وإضافة', reject: 'رفض', del: 'حذف', none: 'لا توجد اقتراحات بعد.', cite: 'نسخ الاقتباس', copied: 'تم النسخ ✓', share: '⇪ مشاركة', shareCopied: 'تم نسخ الرابط ✓', daily: 'مخطوط اليوم', open: 'عرض', upload: 'رفع صورة', uploading: 'جارٍ الرفع…', suggBy: 'اقترحه', pending: 'قيد المراجعة', stories: 'القصص', assistant: 'المساعد', quranFrom: 'من القرآن', sunnahFrom: 'من السنة', verses: 'آيات', hadiths: 'أحاديث', ayahRef: 'قرآن', grade: 'الدرجة', trending: '✦ الأكثر بحثا', timeline: '⏳ الخط الزمني', grid: '▦ الشبكة', listen: '🎧 استمع — تلاوة قرآنية (من ويكيميديا كومنز)', undated: 'غير مؤرخ / قرون أخرى', tlNote: 'تصفح المكتبة كاملة قرنا بعد قرن (بالتقويم الهجري).', scholars: 'العلماء', heroS: 'علماء التراث', heroSP: 'الأئمة والفقهاء والمؤرخون والعلماء الذين خلّفوا المخطوطات — سيرتهم وشيوخهم ومؤلفاتهم، مع روابط إلى مخطوطاتهم المحفوظة في هذه المكتبة.', inArchive: 'في هذه المكتبة', noMatchS: 'لا يوجد علماء مطابقون لبحثك.', works: 'المؤلفات' }};
 let LANG = localStorage.getItem('turathLang') || 'en';
 const T = k => I18N[LANG][k];
 function applyLang() {
@@ -28,6 +28,11 @@ document.querySelector('[data-tab="assistant"]').textContent = T('assistant');
   $('#tab-manuscripts .hero p').textContent = T('heroP');
   $('#tab-events h1').textContent = T('heroE');
   $('#tab-events .hero p').textContent = T('heroEP');
+  document.querySelector('[data-tab="scholars"]').textContent = T('scholars');
+  $('#tab-scholars h1').textContent = T('heroS');
+  $('#tab-scholars .hero p').textContent = T('heroSP');
+  $('#sSearchBtn').textContent = T('search');
+  $('#sSearch').placeholder = LANG === 'ar' ? 'ابحث في العلماء…' : 'Search scholars…';
   $('#mSearchBtn').textContent = T('search');
   $('#eSearchBtn').textContent = T('search');
   $('#suggestBtn').textContent = T('suggest');
@@ -39,11 +44,13 @@ document.querySelector('[data-tab="assistant"]').textContent = T('assistant');
   $('#eSearch').placeholder = LANG === 'ar' ? 'ابحث في الأحداث…' : 'Search events…';
   if (mState.data) renderM(mState.data);
   if (eState.data) renderE(eState.data);
+  if (schState.data) renderS(schState.data);
 }
 $('#langBtn').addEventListener('click', () => { LANG = LANG === 'en' ? 'ar' : 'en'; localStorage.setItem('turathLang', LANG); applyLang(); });
 
 let mState = { page: 1, data: null };
 let eState = { page: 1, data: null };
+let schState = { page: 1, data: null };
 
 // ---------- tabs ----------
 document.querySelectorAll('nav [data-tab]').forEach(b => b.addEventListener('click', () => {
@@ -392,6 +399,69 @@ $('#eAdd').addEventListener('submit', async e => {
 });
 
 // ---------- modal ----------
+// ---------- scholars ----------
+async function loadS() {
+  const q = $('#sSearch').value.trim();
+  const url = `${CFG.API_BASE}/api/scholars?q=${encodeURIComponent(q)}&field=${encodeURIComponent($('#sField').value)}&page=${schState.page}&per=20`;
+  let d;
+  try {
+    const r = await fetch(url, { headers: H() });
+    d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+  } catch (e) {
+    $('#sStats').innerHTML = `<span style="color:#e08080">⚠ ${esc(e.message || 'API unreachable')} — ${LANG === 'ar' ? 'اضغط بحث للمحاولة مجددا' : 'tap Search to retry'}</span>`;
+    return;
+  }
+  schState.data = d;
+  renderS(d);
+}
+function renderS(d) {
+  $('#sStats').textContent = `${d.total} ${LANG === 'ar' ? 'عالم' : 'scholars'} — ${T('page')} ${d.page}`;
+  $('#sGrid').innerHTML = d.scholars.map(s => `
+    <div class="card" onclick="showS('${esc(s.slug || s.id)}')">
+      <div class="thumb sThumb">${esc(s.nameAr || '✒')}</div>
+      <div class="cbody">
+        <h3>${esc(LANG === 'ar' && s.nameAr ? s.nameAr : s.nameEn)}</h3>
+        ${s.nameAr && LANG !== 'ar' ? `<div class="arTitle">${esc(s.nameAr)}</div>` : ''}
+        <div class="meta">${esc(s.era || (s.deathYear ? (LANG === 'ar' ? 'توفي ' : 'd. ') + s.deathYear + ' CE' : ''))}</div>
+        <div class="desc">${esc(LANG === 'ar' && s.bioAr ? s.bioAr : s.bioEn)}</div>
+        <div>${[s.field, s.region].filter(Boolean).map(f => `<span class="chip">${esc(f)}</span>`).join('')}</div>
+      </div>
+    </div>`).join('') || T('noMatchS');
+  $('#sPage').textContent = `${T('page')} ${d.page} / ${Math.max(1, Math.ceil(d.total / d.per))}`;
+  $('#sPrev').disabled = d.page <= 1;
+  $('#sNext').disabled = d.page * d.per >= d.total;
+  const el = $('#sField'); const cur = el.value; const first = el.options[0].textContent;
+  el.innerHTML = `<option value="">${first}</option>` + (d.facets.fields || []).map(f => `<option value="${esc(f.field)}">${esc(f.field)} (${f.n})</option>`).join('');
+  el.value = cur;
+}
+window.showS = async key => {
+  let d;
+  try {
+    const r = await fetch(`${CFG.API_BASE}/api/scholars/${encodeURIComponent(key)}`, { headers: H() });
+    d = await r.json();
+    if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+  } catch (e) { toast('⚠ ' + (e.message || 'API unreachable')); return; }
+  const s = d.scholar;
+  $('#modalContent').innerHTML = `
+    <div class="detail">
+      <h2>${esc(s.nameEn)}</h2>
+      ${s.nameAr ? `<div class="arTitle big">${esc(s.nameAr)}</div>` : ''}
+      ${s.fullName ? `<div class="meta">${esc(s.fullName)}</div>` : ''}
+      ${s.era ? `<div class="meta">${esc(s.era)}</div>` : ''}
+      <p>${esc(s.bioEn)}</p>
+      ${s.bioAr ? `<p dir="rtl" class="arText">${esc(s.bioAr)}</p>` : ''}
+      <p>${[['Field', s.field], ['Region', s.region], [T('works'), s.works]].filter(([, v]) => v).map(([k, v]) => `<span class="chip"><b>${k}:</b> ${esc(v)}</span>`).join('')}</p>
+      ${(d.related_manuscripts || []).length ? `<h3>${T('inArchive')}</h3>` + d.related_manuscripts.map(m => `<p><button class="ghost" onclick="showM(${m.id})">${esc(m.title)}${m.title_ar ? ' · ' + esc(m.title_ar) : ''} →</button></p>`).join('') : ''}
+    </div>`;
+  $('#modal').hidden = false;
+};
+$('#sSearchBtn').addEventListener('click', () => { schState.page = 1; loadS(); });
+$('#sSearch').addEventListener('keydown', e => { if (e.key === 'Enter') { schState.page = 1; loadS(); } });
+$('#sField').addEventListener('change', () => { schState.page = 1; loadS(); });
+$('#sPrev').addEventListener('click', () => { if (schState.page > 1) { schState.page--; loadS(); } });
+$('#sNext').addEventListener('click', () => { schState.page++; loadS(); });
+
 $('#modalClose').addEventListener('click', () => $('#modal').hidden = true);
 $('#modal').addEventListener('click', e => { if (e.target === $('#modal')) $('#modal').hidden = true; });
 
