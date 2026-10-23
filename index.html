@@ -25,6 +25,7 @@
   <nav>
     <button data-tab="manuscripts" class="active">Manuscripts</button>
     <button data-tab="events">History</button>
+    <button data-tab="scholars">Scholars</button>
     <button data-tab="stories">Stories</button>
     <button data-tab="assistant">Assistant</button>
     <button data-tab="about">About</button>
@@ -142,6 +143,22 @@
     </details>
   </section>
 
+
+  <!-- SCHOLARS -->
+  <section id="tab-scholars" class="tab">
+    <div class="hero">
+      <h1>Scholars of the Archive</h1>
+      <p>The imams, jurists, historians and scientists behind the manuscripts — their lives, teachers and works, with links to their manuscripts preserved in this archive.</p>
+    </div>
+    <div class="controls">
+      <input id="sSearch" type="search" placeholder="Search scholars…">
+      <select id="sField"><option value="">Field: all</option></select>
+      <button id="sSearchBtn" class="primary">Search</button>
+    </div>
+    <div id="sStats" class="statline"></div>
+    <div id="sGrid" class="grid"></div>
+    <div class="pager"><button id="sPrev">← Prev</button><span id="sPage"></span><button id="sNext">Next →</button></div>
+  </section>
 
   <!-- PROPHETIC STORIES (QASAS) -->
   <section id="tab-stories" class="tab">
