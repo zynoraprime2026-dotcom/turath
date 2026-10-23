@@ -173,3 +173,6 @@ a.evTitle:hover { color: var(--gold, #f9cb65); }
 /* audio recitation player */
 .audioPlayer{width:100%;margin:12px 0 4px}
 .audioNote{color:var(--mut);font-size:.82rem;margin-bottom:10px}
+
+/* scholars tab */
+#sGrid .card .thumb{font-size:1.4rem;color:var(--gold);font-weight:700;direction:rtl;padding:0 12px;text-align:center;line-height:1.35}
