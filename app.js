@@ -529,6 +529,7 @@ applyAdmin();
 applyLang();
 loadM();
 loadE();
+loadS();
 loadTrending();
 loadDaily();
 // deep link: #m/<id> opens that manuscript
